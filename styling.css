@@ -1,0 +1,59 @@
+.custom-shape-divider-bottom-1618991762 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1618991762 svg {
+    position: relative;
+    display: block;
+    width: calc(177% + 1.3px);
+    height: 271px;
+}
+
+.custom-shape-divider-bottom-1618991762 .shape-fill {
+    fill: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    min-height: 70vh;
+    position: relative;
+    background-color: blue;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.box {
+    background-color: burlywood;
+    max-width: 300px;
+    margin: 5px;
+    margin-right: 10px;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.flex-class {
+    display: flex;
+}
+
+.more-info {
+    float: right;
+}
+
+.more-info ul {
+    display: flex;
+    list-style: none;
+}
+
+.more-info ul li {
+    font-family: 'Akaya Telivigala', cursive;
+    color: white;
+}

@@ -1,0 +1,3125 @@
+.globl	constructor
+.public	constructor
+.type	constructor, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7_with_init_storage$
+}
+IF
+;; constructor protection
+GETGLOB 6
+THROWIF 51
+PUSHINT 1
+SETGLOB 6
+;; end constructor protection
+; Decode input parameters
+ENDS
+; constructor Bihashara
+GETGLOB 2
+NEQINT 0
+THROWIFNOT 101
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+ACCEPT
+; end constructor Bihashara
+CALL $c7_to_c4$
+TRUE
+SETGLOB 7
+
+.globl	requestLoan
+.public	requestLoan
+.type	requestLoan, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+PUSH S1
+PUSHCONT {
+	LDU 32
+	GETGLOB 4
+	ROT
+	SETINDEXQ 5
+	SETGLOB 4
+}
+IFNOT
+; Decode input parameters
+; Decode description
+LDREF
+; Decode value
+LDU 128
+ENDS
+;; param: description
+;; param: value
+; modifier acceptMessage
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+ACCEPT
+; function requestLoan
+; expValue
+; end expValue
+;; get member sender
+GETGLOB 9
+; colValue
+SETGLOB 10
+; end colValue
+;; push identifier description
+PUSH S1
+;; push identifier value
+PUSH S1
+FALSE
+PUSHINT 0
+NEWDICT
+;; push identifier manager
+GETGLOB 10
+TUPLE 6
+;; decl: newproposal
+; expValue
+;; fetch proposals
+GETGLOB 15
+; end expValue
+;; push identifier newproposal
+PUSH S1
+;; array.push(..)
+UNTUPLE 6
+NEWC
+PUSH S6
+STREFR
+PUSH S5
+STUR 128
+PUSH S4
+STIR 1
+PUSH S3
+STUR 256
+PUSH S2
+SWAP
+STDICT
+PUSH S1
+STSLICER
+XCHG s6
+BLKDROP 6
+SWAP
+UNPAIR
+PUSH S1
+INC
+XCHG s3
+ROTREV
+PUSHINT 32
+DICTUSETB
+PAIR
+; colValue
+SETGLOB 15
+; end colValue
+;; return
+;; emitting 1 value(s)
+PUSH S3
+EQINT -1
+PUSHCONT {
+	PUSH S5
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 96
+	STZEROES
+	STSLICECONST 0
+	STSLICECONST 1
+	NEWC
+	STSLICECONST xc1134ded
+	PUSH S2
+	UNTUPLE 6
+	BLKSWAP 1, 6
+	PUSH S6
+	STREFR
+	PUSH S5
+	STUR 128
+	PUSH S4
+	STIR 1
+	PUSH S3
+	STUR 256
+	PUSH S2
+	SWAP
+	STDICT
+	PUSH S1
+	STSLICER
+	XCHG s6
+	BLKDROP 6
+	STBREFR
+	ENDC
+	PUSHINT 1
+	SENDRAWMSG
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	PUSH S1
+	INDEX 2
+	GETGLOB 9
+	BLKSWAP 1, 3
+	INDEX 1
+	NEWC
+	PUSHINT 2
+	STZEROES
+	STI 1
+	PUSHINT 3
+	STZEROES
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 104
+	STZEROES
+	STSLICECONST 0
+	STSLICECONST 1
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	PUSH S2
+	UNTUPLE 6
+	BLKSWAP 1, 6
+	PUSH S6
+	STREFR
+	PUSH S5
+	STUR 128
+	PUSH S4
+	STIR 1
+	PUSH S3
+	STUR 256
+	PUSH S2
+	SWAP
+	STDICT
+	PUSH S1
+	STSLICER
+	XCHG s6
+	BLKDROP 6
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+	SENDRAWMSG
+}
+IFELSE
+DROP
+; end function requestLoan
+DROP2
+; end modifier acceptMessage
+CALL $c7_to_c4$
+TRUE
+SETGLOB 7
+
+.globl	requestLoan_internal
+.type	requestLoan_internal, @function
+;; param: description
+;; param: value
+; modifier acceptMessage
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+ACCEPT
+; function requestLoan
+; expValue
+; end expValue
+;; get member sender
+GETGLOB 9
+; colValue
+SETGLOB 10
+; end colValue
+;; push identifier description
+PUSH S1
+;; push identifier value
+PUSH S1
+FALSE
+PUSHINT 0
+NEWDICT
+;; push identifier manager
+GETGLOB 10
+TUPLE 6
+;; decl: newproposal
+; expValue
+;; fetch proposals
+GETGLOB 15
+; end expValue
+;; push identifier newproposal
+PUSH S1
+;; array.push(..)
+UNTUPLE 6
+NEWC
+PUSH S6
+STREFR
+PUSH S5
+STUR 128
+PUSH S4
+STIR 1
+PUSH S3
+STUR 256
+PUSH S2
+SWAP
+STDICT
+PUSH S1
+STSLICER
+XCHG s6
+BLKDROP 6
+SWAP
+UNPAIR
+PUSH S1
+INC
+XCHG s3
+ROTREV
+PUSHINT 32
+DICTUSETB
+PAIR
+; colValue
+SETGLOB 15
+; end colValue
+;; return
+TUPLE 1
+SETGLOB 8
+; end function requestLoan
+DROP2
+; end modifier acceptMessage
+GETGLOB 8
+UNTUPLE 1
+
+.globl	addMembers
+.public	addMembers
+.type	addMembers, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode newMember
+LDMSGADDR
+ENDS
+;; param: newMember
+; modifier acceptMessage
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+ACCEPT
+; function addMembers
+;; index
+;; push identifier newMember
+DUP
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+FALSE
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+;; fetch members
+GETGLOB 13
+;; push identifier newMember
+PUSH S1
+SWAP
+; end expValue
+TRUE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETGLOB 13
+; end colValue
+; end function addMembers
+DROP
+; end modifier acceptMessage
+CALL $c7_to_c4$
+TRUE
+SETGLOB 7
+
+.globl	addMembers_internal
+.type	addMembers_internal, @function
+;; param: newMember
+; modifier acceptMessage
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+ACCEPT
+; function addMembers
+;; index
+;; push identifier newMember
+DUP
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+FALSE
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+;; fetch members
+GETGLOB 13
+;; push identifier newMember
+PUSH S1
+SWAP
+; end expValue
+TRUE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETGLOB 13
+; end colValue
+; end function addMembers
+DROP
+; end modifier acceptMessage
+
+.globl	removeMembers
+.public	removeMembers
+.type	removeMembers, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode oldmember
+LDMSGADDR
+ENDS
+;; param: oldmember
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function removeMembers
+;; index
+;; push identifier oldmember
+DUP
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+;; fetch members
+GETGLOB 13
+;; push identifier oldmember
+PUSH S1
+SWAP
+; end expValue
+FALSE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETGLOB 13
+; end colValue
+; end function removeMembers
+DROP
+; end modifier onlyMembers
+CALL $c7_to_c4$
+TRUE
+SETGLOB 7
+
+.globl	removeMembers_internal
+.type	removeMembers_internal, @function
+;; param: oldmember
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function removeMembers
+;; index
+;; push identifier oldmember
+DUP
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+;; fetch members
+GETGLOB 13
+;; push identifier oldmember
+PUSH S1
+SWAP
+; end expValue
+FALSE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETGLOB 13
+; end colValue
+; end function removeMembers
+DROP
+; end modifier onlyMembers
+
+.globl	approveLoan
+.public	approveLoan
+.type	approveLoan, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode index
+LDU 256
+ENDS
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function approveLoan
+;; index
+;; push identifier index
+DUP
+;; push identifier proposals
+GETGLOB 15
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDI 1
+LDU 256
+LDDICT
+TUPLE 6
+;; decl: propose
+;; !
+;; index
+;; get member sender
+GETGLOB 9
+;; get member approvals
+;; push identifier propose
+PUSH S1
+INDEX 4
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+NOT
+THROWIFNOT 100
+; expValue
+DUP
+DUP
+INDEX 4
+;; get member sender
+GETGLOB 9
+SWAP
+; end expValue
+TRUE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETINDEX 4
+NIP
+; end colValue
+;; ++
+; expValue
+DUP
+INDEX 3
+; end expValue
+INC
+; colValue
+SETINDEX 3
+; end colValue
+DROP
+; end function approveLoan
+DROP
+; end modifier onlyMembers
+PUSHCONT {
+	CALL $c7_to_c4$
+}
+IF
+TRUE
+SETGLOB 7
+
+.globl	approveLoan_internal
+.type	approveLoan_internal, @function
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function approveLoan
+;; index
+;; push identifier index
+DUP
+;; push identifier proposals
+GETGLOB 15
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDI 1
+LDU 256
+LDDICT
+TUPLE 6
+;; decl: propose
+;; !
+;; index
+;; get member sender
+GETGLOB 9
+;; get member approvals
+;; push identifier propose
+PUSH S1
+INDEX 4
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+NOT
+THROWIFNOT 100
+; expValue
+DUP
+DUP
+INDEX 4
+;; get member sender
+GETGLOB 9
+SWAP
+; end expValue
+TRUE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETINDEX 4
+NIP
+; end colValue
+;; ++
+; expValue
+DUP
+INDEX 3
+; end expValue
+INC
+; colValue
+SETINDEX 3
+; end colValue
+DROP
+; end function approveLoan
+DROP
+; end modifier onlyMembers
+
+.globl	passLoan
+.public	passLoan
+.type	passLoan, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode index
+LDU 256
+ENDS
+;; param: index
+; modifier restricted
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; get member sender
+GETGLOB 9
+;; push identifier manager
+GETGLOB 10
+SDEQ
+THROWIFNOT 100
+ACCEPT
+; function passLoan
+;; index
+;; push identifier index
+DUP
+;; push identifier proposals
+GETGLOB 15
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDI 1
+LDU 256
+LDDICT
+TUPLE 6
+;; decl: propose
+;; get member approvalCount
+;; push identifier propose
+DUP
+INDEX 3
+GTINT 10
+THROWIFNOT 100
+;; !
+;; get member complete
+;; push identifier propose
+DUP
+INDEX 2
+NOT
+THROWIFNOT 100
+; expValue
+DUP
+; end expValue
+TRUE
+; colValue
+SETINDEX 2
+NIP
+; end colValue
+; expValue
+; end expValue
+;; push identifier now
+NOW
+; colValue
+SETGLOB 17
+; end colValue
+PUSHSLICE x4c6f616e20617070726f766564
+NEWC
+STSLICE
+ENDC
+;; decl: text
+;; emit LoanApproved
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x142fa145
+;; text
+;; push identifier text
+PUSH S1
+STREFR
+;; amount
+;; push identifier minimumContribution
+GETGLOB 12
+STUR 128
+;; timestamp
+;; push identifier timestamp
+GETGLOB 17
+STUR 32
+ENDC
+PUSHINT 1
+SENDRAWMSG
+DROP2
+; end function passLoan
+DROP
+; end modifier restricted
+CALL $c7_to_c4$
+TRUE
+SETGLOB 7
+
+.globl	passLoan_internal
+.type	passLoan_internal, @function
+;; param: index
+; modifier restricted
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; get member sender
+GETGLOB 9
+;; push identifier manager
+GETGLOB 10
+SDEQ
+THROWIFNOT 100
+ACCEPT
+; function passLoan
+;; index
+;; push identifier index
+DUP
+;; push identifier proposals
+GETGLOB 15
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDI 1
+LDU 256
+LDDICT
+TUPLE 6
+;; decl: propose
+;; get member approvalCount
+;; push identifier propose
+DUP
+INDEX 3
+GTINT 10
+THROWIFNOT 100
+;; !
+;; get member complete
+;; push identifier propose
+DUP
+INDEX 2
+NOT
+THROWIFNOT 100
+; expValue
+DUP
+; end expValue
+TRUE
+; colValue
+SETINDEX 2
+NIP
+; end colValue
+; expValue
+; end expValue
+;; push identifier now
+NOW
+; colValue
+SETGLOB 17
+; end colValue
+PUSHSLICE x4c6f616e20617070726f766564
+NEWC
+STSLICE
+ENDC
+;; decl: text
+;; emit LoanApproved
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x142fa145
+;; text
+;; push identifier text
+PUSH S1
+STREFR
+;; amount
+;; push identifier minimumContribution
+GETGLOB 12
+STUR 128
+;; timestamp
+;; push identifier timestamp
+GETGLOB 17
+STUR 32
+ENDC
+PUSHINT 1
+SENDRAWMSG
+DROP2
+; end function passLoan
+DROP
+; end modifier restricted
+
+.globl	sendMonthlyContribution
+.public	sendMonthlyContribution
+.type	sendMonthlyContribution, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode amount
+LDU 128
+; Decode bounce
+LDI 1
+ENDS
+;; param: amount
+;; param: bounce
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function sendMonthlyContribution
+;; push identifier amount
+PUSH S1
+;; push identifier minimumContribution
+GETGLOB 12
+;; >
+GREATER
+THROWIFNOT 100
+;; transfer()
+;; push identifier amount
+PUSH S1
+;; push identifier bankAddress
+GETGLOB 14
+;; push identifier bounce
+PUSH S2
+NEWC
+STSLICECONST x6_
+STI 1
+PUSHINT 3
+STZEROES
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 105
+STZEROES
+STSLICECONST 0
+STSLICECONST 0
+ENDC
+PUSHINT 3
+SENDRAWMSG
+; end function sendMonthlyContribution
+DROP2
+; end modifier onlyMembers
+PUSHCONT {
+	CALL $c7_to_c4$
+}
+IF
+TRUE
+SETGLOB 7
+
+.globl	sendMonthlyContribution_internal
+.type	sendMonthlyContribution_internal, @function
+;; param: amount
+;; param: bounce
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function sendMonthlyContribution
+;; push identifier amount
+PUSH S1
+;; push identifier minimumContribution
+GETGLOB 12
+;; >
+GREATER
+THROWIFNOT 100
+;; transfer()
+;; push identifier amount
+PUSH S1
+;; push identifier bankAddress
+GETGLOB 14
+;; push identifier bounce
+PUSH S2
+NEWC
+STSLICECONST x6_
+STI 1
+PUSHINT 3
+STZEROES
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 105
+STZEROES
+STSLICECONST 0
+STSLICECONST 0
+ENDC
+PUSHINT 3
+SENDRAWMSG
+; end function sendMonthlyContribution
+DROP2
+; end modifier onlyMembers
+
+.globl	microInsurance
+.public	microInsurance
+.type	microInsurance, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+PUSH S1
+PUSHCONT {
+	LDU 32
+	GETGLOB 4
+	ROT
+	SETINDEXQ 5
+	SETGLOB 4
+}
+IFNOT
+; Decode input parameters
+; Decode amount
+LDU 128
+ENDS
+;; param: amount
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function microInsurance
+; expValue
+; end expValue
+;; get member sender
+GETGLOB 9
+; colValue
+SETGLOB 11
+; end colValue
+TRUE
+NEWDICT
+PUSHINT 0
+;; push identifier amount
+PUSH S3
+FALSE
+;; push identifier manager1
+GETGLOB 11
+TUPLE 6
+;; decl: newinsured
+; expValue
+;; fetch insurance
+GETGLOB 18
+; end expValue
+;; push identifier newinsured
+PUSH S1
+;; array.push(..)
+UNTUPLE 6
+NEWC
+PUSH S6
+STIR 1
+PUSH S5
+SWAP
+STDICT
+PUSH S4
+STUR 256
+PUSH S3
+STUR 128
+PUSH S2
+STIR 1
+PUSH S1
+STSLICER
+XCHG s6
+BLKDROP 6
+SWAP
+UNPAIR
+PUSH S1
+INC
+XCHG s3
+ROTREV
+PUSHINT 32
+DICTUSETB
+PAIR
+; colValue
+SETGLOB 18
+; end colValue
+;; return
+;; emitting 1 value(s)
+PUSH S2
+EQINT -1
+PUSHCONT {
+	PUSH S4
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 96
+	STZEROES
+	STSLICECONST 0
+	STSLICECONST 1
+	NEWC
+	STSLICECONST x9d32d06d
+	PUSH S2
+	UNTUPLE 6
+	BLKSWAP 1, 6
+	PUSH S6
+	STIR 1
+	PUSH S5
+	SWAP
+	STDICT
+	PUSH S4
+	STUR 256
+	PUSH S3
+	STUR 128
+	PUSH S2
+	STIR 1
+	PUSH S1
+	STSLICER
+	XCHG s6
+	BLKDROP 6
+	STBREFR
+	ENDC
+	PUSHINT 1
+	SENDRAWMSG
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	PUSH S1
+	INDEX 2
+	GETGLOB 9
+	BLKSWAP 1, 3
+	INDEX 1
+	NEWC
+	PUSHINT 2
+	STZEROES
+	STI 1
+	PUSHINT 3
+	STZEROES
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 104
+	STZEROES
+	STSLICECONST 0
+	STSLICECONST 1
+	NEWC
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	PUSH S2
+	UNTUPLE 6
+	BLKSWAP 1, 6
+	PUSH S6
+	STIR 1
+	PUSH S5
+	SWAP
+	STDICT
+	PUSH S4
+	STUR 256
+	PUSH S3
+	STUR 128
+	PUSH S2
+	STIR 1
+	PUSH S1
+	STSLICER
+	XCHG s6
+	BLKDROP 6
+	STBREFR
+	ENDC
+	GETGLOB 4
+	INDEX 4
+	SENDRAWMSG
+}
+IFELSE
+DROP
+; end function microInsurance
+DROP
+; end modifier onlyMembers
+CALL $c7_to_c4$
+TRUE
+SETGLOB 7
+
+.globl	microInsurance_internal
+.type	microInsurance_internal, @function
+;; param: amount
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function microInsurance
+; expValue
+; end expValue
+;; get member sender
+GETGLOB 9
+; colValue
+SETGLOB 11
+; end colValue
+TRUE
+NEWDICT
+PUSHINT 0
+;; push identifier amount
+PUSH S3
+FALSE
+;; push identifier manager1
+GETGLOB 11
+TUPLE 6
+;; decl: newinsured
+; expValue
+;; fetch insurance
+GETGLOB 18
+; end expValue
+;; push identifier newinsured
+PUSH S1
+;; array.push(..)
+UNTUPLE 6
+NEWC
+PUSH S6
+STIR 1
+PUSH S5
+SWAP
+STDICT
+PUSH S4
+STUR 256
+PUSH S3
+STUR 128
+PUSH S2
+STIR 1
+PUSH S1
+STSLICER
+XCHG s6
+BLKDROP 6
+SWAP
+UNPAIR
+PUSH S1
+INC
+XCHG s3
+ROTREV
+PUSHINT 32
+DICTUSETB
+PAIR
+; colValue
+SETGLOB 18
+; end colValue
+;; return
+TUPLE 1
+SETGLOB 8
+; end function microInsurance
+DROP
+; end modifier onlyMembers
+GETGLOB 8
+UNTUPLE 1
+
+.globl	approveInsurance
+.public	approveInsurance
+.type	approveInsurance, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode index
+LDU 256
+ENDS
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function approveInsurance
+;; index
+;; push identifier index
+DUP
+;; push identifier insurance
+GETGLOB 18
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDI 1
+LDDICT
+LDU 256
+LDU 128
+LDI 1
+TUPLE 6
+;; decl: ins
+;; get member isBusiness
+;; push identifier ins
+DUP
+INDEX 0
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+;; !
+;; index
+;; get member sender
+GETGLOB 9
+;; get member passInsurance
+;; push identifier ins
+PUSH S1
+INDEX 1
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+NOT
+THROWIFNOT 100
+; expValue
+DUP
+DUP
+INDEX 1
+;; get member sender
+GETGLOB 9
+SWAP
+; end expValue
+TRUE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETINDEX 1
+NIP
+; end colValue
+;; ++
+; expValue
+DUP
+INDEX 2
+; end expValue
+INC
+; colValue
+SETINDEX 2
+; end colValue
+DROP
+; end function approveInsurance
+DROP
+; end modifier onlyMembers
+PUSHCONT {
+	CALL $c7_to_c4$
+}
+IF
+TRUE
+SETGLOB 7
+
+.globl	approveInsurance_internal
+.type	approveInsurance_internal, @function
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function approveInsurance
+;; index
+;; push identifier index
+DUP
+;; push identifier insurance
+GETGLOB 18
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDI 1
+LDDICT
+LDU 256
+LDU 128
+LDI 1
+TUPLE 6
+;; decl: ins
+;; get member isBusiness
+;; push identifier ins
+DUP
+INDEX 0
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+;; !
+;; index
+;; get member sender
+GETGLOB 9
+;; get member passInsurance
+;; push identifier ins
+PUSH S1
+INDEX 1
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+NOT
+THROWIFNOT 100
+; expValue
+DUP
+DUP
+INDEX 1
+;; get member sender
+GETGLOB 9
+SWAP
+; end expValue
+TRUE
+; colValue
+NEWC
+STI 1
+ROTREV
+PUSHINT 267
+DICTSETB
+SETINDEX 1
+NIP
+; end colValue
+;; ++
+; expValue
+DUP
+INDEX 2
+; end expValue
+INC
+; colValue
+SETINDEX 2
+; end colValue
+DROP
+; end function approveInsurance
+DROP
+; end modifier onlyMembers
+
+.globl	releaseFunds
+.public	releaseFunds
+.type	releaseFunds, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode index
+LDU 256
+ENDS
+;; param: index
+; modifier restricted1
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+;; get member sender
+GETGLOB 9
+;; push identifier manager1
+GETGLOB 11
+SDEQ
+THROWIFNOT 100
+ACCEPT
+; function releaseFunds
+;; index
+;; push identifier index
+DUP
+;; push identifier insurance
+GETGLOB 18
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDI 1
+LDDICT
+LDU 256
+LDU 128
+LDI 1
+TUPLE 6
+;; decl: ins
+;; get member agree
+;; push identifier ins
+DUP
+INDEX 2
+GTINT 10
+THROWIFNOT 100
+;; get member complete
+;; push identifier ins
+DUP
+INDEX 4
+FALSE
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+DUP
+; end expValue
+TRUE
+; colValue
+SETINDEX 4
+NIP
+; end colValue
+PUSHSLICE x496e7375726564
+NEWC
+STSLICE
+ENDC
+;; decl: text
+;; emit LoanApproved
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x142fa145
+;; text
+;; push identifier text
+PUSH S1
+STREFR
+;; amount
+;; get member amount
+;; push identifier ins
+PUSH S2
+INDEX 3
+STUR 128
+;; timestamp
+;; push identifier now
+NOW
+STUR 32
+ENDC
+PUSHINT 1
+SENDRAWMSG
+DROP2
+; end function releaseFunds
+DROP
+; end modifier restricted1
+PUSHCONT {
+	CALL $c7_to_c4$
+}
+IF
+TRUE
+SETGLOB 7
+
+.globl	releaseFunds_internal
+.type	releaseFunds_internal, @function
+;; param: index
+; modifier restricted1
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+;; get member sender
+GETGLOB 9
+;; push identifier manager1
+GETGLOB 11
+SDEQ
+THROWIFNOT 100
+ACCEPT
+; function releaseFunds
+;; index
+;; push identifier index
+DUP
+;; push identifier insurance
+GETGLOB 18
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDI 1
+LDDICT
+LDU 256
+LDU 128
+LDI 1
+TUPLE 6
+;; decl: ins
+;; get member agree
+;; push identifier ins
+DUP
+INDEX 2
+GTINT 10
+THROWIFNOT 100
+;; get member complete
+;; push identifier ins
+DUP
+INDEX 4
+FALSE
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+DUP
+; end expValue
+TRUE
+; colValue
+SETINDEX 4
+NIP
+; end colValue
+PUSHSLICE x496e7375726564
+NEWC
+STSLICE
+ENDC
+;; decl: text
+;; emit LoanApproved
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x142fa145
+;; text
+;; push identifier text
+PUSH S1
+STREFR
+;; amount
+;; get member amount
+;; push identifier ins
+PUSH S2
+INDEX 3
+STUR 128
+;; timestamp
+;; push identifier now
+NOW
+STUR 32
+ENDC
+PUSHINT 1
+SENDRAWMSG
+DROP2
+; end function releaseFunds
+DROP
+; end modifier restricted1
+
+.globl	initiateProject
+.public	initiateProject
+.type	initiateProject, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+PUSH S1
+PUSHCONT {
+	LDU 32
+	GETGLOB 4
+	ROT
+	SETINDEXQ 5
+	SETGLOB 4
+}
+IFNOT
+; Decode input parameters
+; Decode description
+LDREF
+; Decode amount
+LDU 128
+ENDS
+;; param: description
+;; param: amount
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function initiateProject
+;; push identifier description
+PUSH S1
+;; push identifier amount
+PUSH S1
+;; get member Pending
+PUSHINT 0
+PUSHINT 0
+TUPLE 4
+;; decl: newproject
+; expValue
+;; fetch projects
+GETGLOB 20
+; end expValue
+;; push identifier newproject
+PUSH S1
+;; array.push(..)
+UNTUPLE 4
+NEWC
+PUSH S4
+STREFR
+PUSH S3
+STUR 128
+PUSH S2
+STUR 8
+PUSH S1
+STUR 256
+XCHG s4
+BLKDROP 4
+SWAP
+UNPAIR
+PUSH S1
+INC
+XCHG s3
+ROTREV
+PUSHINT 32
+DICTUSETB
+PAIR
+; colValue
+SETGLOB 20
+; end colValue
+;; return
+;; emitting 1 value(s)
+PUSH S3
+EQINT -1
+PUSHCONT {
+	PUSH S5
+	CTOS
+	LDU 2
+	LDMSGADDR
+	DROP
+	NIP
+	NEWC
+	STSLICECONST xc
+	STSLICE
+	PUSHINT 96
+	STZEROES
+	STSLICECONST 0
+	STSLICECONST 0
+	STSLICECONST xc1b08f72
+	PUSH S1
+	UNTUPLE 4
+	BLKSWAP 1, 4
+	PUSH S4
+	STREFR
+	PUSH S3
+	STUR 128
+	PUSH S2
+	STUR 8
+	PUSH S1
+	STUR 256
+	XCHG s4
+	BLKDROP 4
+	ENDC
+	PUSHINT 1
+	SENDRAWMSG
+}
+PUSHCONT {
+	GETGLOB 4
+	DUP
+	INDEX 3
+	PUSH S1
+	INDEX 2
+	GETGLOB 9
+	BLKSWAP 1, 3
+	INDEX 1
+	NEWC
+	PUSHINT 2
+	STZEROES
+	STI 1
+	PUSHINT 3
+	STZEROES
+	STSLICE
+	SWAP
+	STGRAMS
+	STDICT
+	PUSHINT 104
+	STZEROES
+	STSLICECONST 0
+	STSLICECONST 0
+	GETGLOB 4
+	INDEX 5
+	STUR 32
+	PUSH S1
+	UNTUPLE 4
+	BLKSWAP 1, 4
+	PUSH S4
+	STREFR
+	PUSH S3
+	STUR 128
+	PUSH S2
+	STUR 8
+	PUSH S1
+	STUR 256
+	XCHG s4
+	BLKDROP 4
+	ENDC
+	GETGLOB 4
+	INDEX 4
+	SENDRAWMSG
+}
+IFELSE
+DROP
+; end function initiateProject
+DROP2
+; end modifier onlyMembers
+CALL $c7_to_c4$
+TRUE
+SETGLOB 7
+
+.globl	initiateProject_internal
+.type	initiateProject_internal, @function
+;; param: description
+;; param: amount
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function initiateProject
+;; push identifier description
+PUSH S1
+;; push identifier amount
+PUSH S1
+;; get member Pending
+PUSHINT 0
+PUSHINT 0
+TUPLE 4
+;; decl: newproject
+; expValue
+;; fetch projects
+GETGLOB 20
+; end expValue
+;; push identifier newproject
+PUSH S1
+;; array.push(..)
+UNTUPLE 4
+NEWC
+PUSH S4
+STREFR
+PUSH S3
+STUR 128
+PUSH S2
+STUR 8
+PUSH S1
+STUR 256
+XCHG s4
+BLKDROP 4
+SWAP
+UNPAIR
+PUSH S1
+INC
+XCHG s3
+ROTREV
+PUSHINT 32
+DICTUSETB
+PAIR
+; colValue
+SETGLOB 20
+; end colValue
+;; return
+TUPLE 1
+SETGLOB 8
+; end function initiateProject
+DROP2
+; end modifier onlyMembers
+GETGLOB 8
+UNTUPLE 1
+
+.globl	approveProject
+.public	approveProject
+.type	approveProject, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode index
+LDU 256
+ENDS
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function approveProject
+;; index
+;; push identifier index
+DUP
+;; push identifier projects
+GETGLOB 20
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDU 8
+PLDU 256
+TUPLE 4
+;; decl: proj
+;; ++
+; expValue
+DUP
+INDEX 3
+; end expValue
+INC
+; colValue
+SETINDEX 3
+; end colValue
+DROP
+; end function approveProject
+DROP
+; end modifier onlyMembers
+PUSHCONT {
+	CALL $c7_to_c4$
+}
+IF
+TRUE
+SETGLOB 7
+
+.globl	approveProject_internal
+.type	approveProject_internal, @function
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function approveProject
+;; index
+;; push identifier index
+DUP
+;; push identifier projects
+GETGLOB 20
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDU 8
+PLDU 256
+TUPLE 4
+;; decl: proj
+;; ++
+; expValue
+DUP
+INDEX 3
+; end expValue
+INC
+; colValue
+SETINDEX 3
+; end colValue
+DROP
+; end function approveProject
+DROP
+; end modifier onlyMembers
+
+.globl	passProjectFunds
+.public	passProjectFunds
+.type	passProjectFunds, @function
+GETGLOB 1
+ISNULL
+PUSHCONT {
+	CALL $c4_to_c7$
+}
+IF
+; Decode input parameters
+; Decode index
+LDU 256
+ENDS
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function passProjectFunds
+;; index
+;; push identifier index
+DUP
+;; push identifier projects
+GETGLOB 20
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDU 8
+PLDU 256
+TUPLE 4
+;; decl: proj
+;; index
+;; push identifier index
+PUSH S1
+;; push identifier insurance
+GETGLOB 18
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDI 1
+LDDICT
+LDU 256
+LDU 128
+LDI 1
+TUPLE 6
+;; decl: ins
+;; get member agree
+;; push identifier proj
+PUSH S1
+INDEX 3
+GTINT 10
+THROWIFNOT 100
+;; get member condition
+;; push identifier proj
+PUSH S1
+INDEX 2
+;; get member Pending
+PUSHINT 0
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+PUSH S1
+; end expValue
+;; get member Complete
+PUSHINT 1
+; colValue
+SETINDEX 2
+POP S2
+; end colValue
+PUSHSLICE x50726f6a65637420746f20496d706c656d656e746174696f6e2e52656c65617365206d6f6e657920746f2067726f7570206c6561646572
+NEWC
+STSLICE
+ENDC
+;; decl: text
+;; emit LoanApproved
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x142fa145
+;; text
+;; push identifier text
+PUSH S1
+STREFR
+;; amount
+;; get member amount
+;; push identifier ins
+PUSH S2
+INDEX 3
+STUR 128
+;; timestamp
+;; push identifier now
+NOW
+STUR 32
+ENDC
+PUSHINT 1
+SENDRAWMSG
+BLKDROP 3
+; end function passProjectFunds
+DROP
+; end modifier onlyMembers
+PUSHCONT {
+	CALL $c7_to_c4$
+}
+IF
+TRUE
+SETGLOB 7
+
+.globl	passProjectFunds_internal
+.type	passProjectFunds_internal, @function
+;; param: index
+; modifier onlyMembers
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+;; ==
+EQUAL
+THROWIFNOT 102
+;; index
+;; get member sender
+GETGLOB 9
+;; push identifier members
+GETGLOB 13
+PUSHINT 267
+DICTGET
+PUSHCONT {
+	PLDI 1
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+TRUE
+;; ==
+EQUAL
+THROWIFNOT 100
+ACCEPT
+; function passProjectFunds
+;; index
+;; push identifier index
+DUP
+;; push identifier projects
+GETGLOB 20
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDREF
+LDU 128
+LDU 8
+PLDU 256
+TUPLE 4
+;; decl: proj
+;; index
+;; push identifier index
+PUSH S1
+;; push identifier insurance
+GETGLOB 18
+INDEX 1
+PUSHINT 32
+DICTUGET
+THROWIFNOT 50
+LDI 1
+LDDICT
+LDU 256
+LDU 128
+LDI 1
+TUPLE 6
+;; decl: ins
+;; get member agree
+;; push identifier proj
+PUSH S1
+INDEX 3
+GTINT 10
+THROWIFNOT 100
+;; get member condition
+;; push identifier proj
+PUSH S1
+INDEX 2
+;; get member Pending
+PUSHINT 0
+;; ==
+EQUAL
+THROWIFNOT 100
+; expValue
+PUSH S1
+; end expValue
+;; get member Complete
+PUSHINT 1
+; colValue
+SETINDEX 2
+POP S2
+; end colValue
+PUSHSLICE x50726f6a65637420746f20496d706c656d656e746174696f6e2e52656c65617365206d6f6e657920746f2067726f7570206c6561646572
+NEWC
+STSLICE
+ENDC
+;; decl: text
+;; emit LoanApproved
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x142fa145
+;; text
+;; push identifier text
+PUSH S1
+STREFR
+;; amount
+;; get member amount
+;; push identifier ins
+PUSH S2
+INDEX 3
+STUR 128
+;; timestamp
+;; push identifier now
+NOW
+STUR 32
+ENDC
+PUSHINT 1
+SENDRAWMSG
+BLKDROP 3
+; end function passProjectFunds
+DROP
+; end modifier onlyMembers
+
+.globl	c7_to_c4
+.type	c7_to_c4, @function
+GETGLOB 2
+NEWC
+STU 256
+GETGLOB 3
+STUR 64
+GETGLOB 6
+STUR 1
+NEWC
+GETGLOB 12
+GETGLOB 14
+GETGLOB 16
+GETGLOB 18
+UNTUPLE 2
+GETGLOB 20
+UNTUPLE 2
+REVERSE 8, 0
+STU 128
+STSLICE
+STU 256
+STU 32
+STDICT
+STU 32
+STDICT
+GETGLOB 10
+GETGLOB 11
+GETGLOB 13
+GETGLOB 15
+UNTUPLE 2
+GETGLOB 17
+GETGLOB 19
+REVERSE 9, 0
+STBREF
+STSLICE
+STSLICE
+STDICT
+STU 32
+STDICT
+STU 32
+STU 8
+ENDC
+POP C4
+
+.globl	c4_to_c7
+.type	c4_to_c7, @function
+PUSHROOT
+CTOS        ; c4
+LDU 256      ; pubkey c4
+LDU 64      ; pubkey timestamp c4
+LDU 1       ; pubkey [timestamp] constructor_flag memory
+LDREFRTOS
+LDU 128
+LDMSGADDR
+LDU 256
+LDU 32
+LDDICT
+ROTREV
+PAIR
+SETGLOB 18
+LDU 32
+PLDDICT
+PAIR
+SETGLOB 20
+SETGLOB 16
+SETGLOB 14
+SETGLOB 12
+LDMSGADDR
+LDMSGADDR
+LDDICT
+LDU 32
+LDDICT
+ROTREV
+PAIR
+SETGLOB 15
+LDU 32
+PLDU 8
+SETGLOB 19
+SETGLOB 17
+SETGLOB 13
+SETGLOB 11
+SETGLOB 10
+TRUE
+SETGLOB 1   ; pubkey [timestamp] constructor_flag
+SETGLOB 6   ; pubkey [timestamp]
+SETGLOB 3   ; D
+SETGLOB 2
+
+.macro c4_to_c7_with_init_storage
+PUSHROOT
+CTOS        ; c4
+DUP        ; c4 c4
+SBITS      ; c4 bits
+GTINT 1    ; c4 bits>1
+PUSHCONT {
+	LDU 256      ; pubkey c4
+	LDU 64      ; pubkey timestamp c4
+	LDU 1       ; pubkey [timestamp] constructor_flag memory
+	LDREFRTOS
+	LDU 128
+	LDMSGADDR
+	LDU 256
+	LDU 32
+	LDDICT
+	ROTREV
+	PAIR
+	SETGLOB 18
+	LDU 32
+	PLDDICT
+	PAIR
+	SETGLOB 20
+	SETGLOB 16
+	SETGLOB 14
+	SETGLOB 12
+	LDMSGADDR
+	LDMSGADDR
+	LDDICT
+	LDU 32
+	LDDICT
+	ROTREV
+	PAIR
+	SETGLOB 15
+	LDU 32
+	PLDU 8
+	SETGLOB 19
+	SETGLOB 17
+	SETGLOB 13
+	SETGLOB 11
+	SETGLOB 10
+	TRUE
+	SETGLOB 1   ; pubkey [timestamp] constructor_flag
+	SETGLOB 6   ; pubkey [timestamp]
+	SETGLOB 3   ; D
+	SETGLOB 2
+}
+PUSHCONT {
+	PLDDICT   ; D
+	; init manager
+	PUSHSLICE x8000000000000000000000000000000000000000000000000000000000000000001_
+	SETGLOB 10
+	; init manager1
+	PUSHSLICE x8000000000000000000000000000000000000000000000000000000000000000001_
+	SETGLOB 11
+	; init minimumContribution
+	PUSHINT 0
+	SETGLOB 12
+	; init members
+	NEWDICT
+	SETGLOB 13
+	; init bankAddress
+	PUSHSLICE x8000000000000000000000000000000000000000000000000000000000000000001_
+	SETGLOB 14
+	; init proposals
+	PUSHINT 0
+	NEWDICT
+	PAIR
+	SETGLOB 15
+	; init approversCount
+	PUSHINT 0
+	SETGLOB 16
+	; init timestamp
+	PUSHINT 0
+	SETGLOB 17
+	; init insurance
+	PUSHINT 0
+	NEWDICT
+	PAIR
+	SETGLOB 18
+	; init state
+	PUSHINT 0
+	SETGLOB 19
+	; init projects
+	PUSHINT 0
+	NEWDICT
+	PAIR
+	SETGLOB 20
+	; set contract pubkey
+	PUSHINT 0
+	SWAP
+	PUSHINT 64
+	DICTUGET
+	THROWIFNOT 61
+	PLDU 256
+	SETGLOB 2
+	PUSHINT 0 ; timestamp
+	SETGLOB 3
+	PUSHINT 0 ; constructor_flag
+	SETGLOB 6
+	TRUE
+	SETGLOB 1
+	;; init state var: minimumContribution
+	PUSHINT 1000
+	SETGLOB 12
+	;; init state var: bankAddress
+	PUSHSLICE x800c1e99989bc96cff816253345e49118df99038edeb949907cdc79fc24eed87335_
+	SETGLOB 14
+}
+IFELSE
+
+.internal-alias :main_internal,        0
+.internal	:main_internal
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Function: main_internal
+;; param: contract_balance
+;; param: msg_balance
+;; param: int_msg_info
+;; param: msg_body_slice
+PUSHINT 0  ; main_external trans id
+PUSH S2
+CTOS
+LDU 4       ; bounced tail
+LDMSGADDR   ; bounced src tail
+DROP
+SETGLOB 9
+MODPOW2 1
+GETGLOB 4
+TRUE
+SETINDEXQ 1
+PUSHINT 10000000
+SETINDEXQ 2
+NULL
+SETINDEXQ 3
+PUSHINT 1
+SETINDEXQ 4
+SETGLOB 4
+IFRET
+PUSH S1    ; body
+SEMPTY     ; isEmpty
+IFRET
+PUSH S1 ; body
+LDU 32  ; funcId body'
+PUSH S1 ; funcId body' funcId
+IFNOTRET
+PUSH S1 ; funcId body' funcId
+LESSINT 3            ; funcId body' funcId<3
+PUSH S2              ; funcId body' funcId<3 funcId
+PUSHINT 4294967293   ; funcId body' funcId<3 funcId 4294967293
+GREATER              ; funcId body' funcId<3 funcId>4294967293
+OR                   ; funcId body' funcId<3||funcId>4294967293
+PUSHCONT {
+	DROP2
+	THROW 60
+}
+IFJMP
+SWAP    ; body funcId
+CALL 1
+GETGLOB 7
+ISNULL
+PUSHCONT {
+	DROP
+	THROW 60
+}
+IF
+
+.internal-alias :main_external,        -1
+.internal	:main_external
+PUSHINT -1 ; main_external trans id
+PUSHSLICE x8000000000000000000000000000000000000000000000000000000000000000001_
+SETGLOB 9
+PUSH S1
+CALL $c4_to_c7_with_init_storage$
+LDU 1 ; haveSign msgSlice
+SWAP
+PUSHCONT {
+	PUSHINT 512
+	LDSLICEX ; signatureSlice msgSlice
+	DUP      ; signatureSlice msgSlice msgSlice
+	HASHSU   ; signatureSlice msgSlice hashMsgSlice
+	ROT
+	GETGLOB 2
+	DUP
+	SETGLOB 5
+	CHKSIGNU      ; msgSlice isSigned
+	THROWIFNOT 40 ; msgSlice
+}
+IF
+LDU 64                         ; timestamp msgSlice
+SWAP                           ; msgSlice timestamp
+CALL $replay_protection_macro$ ; msgSlice
+LDU 32  ; expireAt msgSlice
+SWAP    ; msgSlice expireAt
+NOW     ; msgSlice expireAt now
+GREATER ; msgSlice expireAt>now
+THROWIFNOT 57
+LDU  32 ; funcId body
+PUSH S1 ; funcId body funcId
+LESSINT 3            ; funcId body' funcId<3
+PUSH S2              ; funcId body' funcId<3 funcId
+PUSHINT 4294967293   ; funcId body' funcId<3 funcId 4294967293
+GREATER              ; funcId body' funcId<3 funcId>4294967293
+OR                   ; funcId body' funcId<3||funcId>4294967293
+PUSHCONT {
+	DROP2
+	THROW 60
+}
+IFJMP
+SWAP    ; body funcId
+CALL 1
+GETGLOB 7
+ISNULL
+PUSHCONT {
+	DROP
+	THROW 60
+}
+IF
+
+.globl	manager
+.public	manager
+.type	manager, @function
+CALL $c4_to_c7$
+GETGLOB 10
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST xdfd7a949
+PUSH S1
+STSLICER
+ENDC
+PUSHINT 1
+SENDRAWMSG
+TRUE
+SETGLOB 7
+
+.globl	manager1
+.public	manager1
+.type	manager1, @function
+CALL $c4_to_c7$
+GETGLOB 11
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x872fb74f
+PUSH S1
+STSLICER
+ENDC
+PUSHINT 1
+SENDRAWMSG
+TRUE
+SETGLOB 7
+
+.globl	minimumContribution
+.public	minimumContribution
+.type	minimumContribution, @function
+CALL $c4_to_c7$
+GETGLOB 12
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST x9a7c746e
+PUSH S1
+STUR 128
+ENDC
+PUSHINT 1
+SENDRAWMSG
+TRUE
+SETGLOB 7
+
+.globl	members
+.public	members
+.type	members, @function
+CALL $c4_to_c7$
+GETGLOB 13
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST xf8909d71
+PUSH S1
+SWAP
+STDICT
+ENDC
+PUSHINT 1
+SENDRAWMSG
+TRUE
+SETGLOB 7
+
+.globl	bankAddress
+.public	bankAddress
+.type	bankAddress, @function
+CALL $c4_to_c7$
+GETGLOB 14
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST xa49f778d
+PUSH S1
+STSLICER
+ENDC
+PUSHINT 1
+SENDRAWMSG
+TRUE
+SETGLOB 7
+
+.globl	approversCount
+.public	approversCount
+.type	approversCount, @function
+CALL $c4_to_c7$
+GETGLOB 16
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST xd68a085d
+PUSH S1
+STUR 256
+ENDC
+PUSHINT 1
+SENDRAWMSG
+TRUE
+SETGLOB 7
+
+.globl	timestamp
+.public	timestamp
+.type	timestamp, @function
+CALL $c4_to_c7$
+GETGLOB 17
+NEWC
+PUSHSLICE xc0000000000000000000000002_
+STSLICER
+STSLICECONST 0
+STSLICECONST 0
+STSLICECONST xe817e535
+PUSH S1
+STUR 32
+ENDC
+PUSHINT 1
+SENDRAWMSG
+TRUE
+SETGLOB 7
+
